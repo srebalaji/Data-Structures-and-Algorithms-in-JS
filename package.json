@@ -1,0 +1,25 @@
+{
+  "name": "Data-Structures-and-algorithms-in-JS",
+  "version": "1.0.0",
+  "description": "Data Structures and algorithms implemented in JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/srebalaji/Data-Structures-and-algorithms-in-JS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/srebalaji/Data-Structures-and-algorithms-in-JS/issues"
+  },
+  "homepage": "https://github.com/srebalaji/Data-Structures-and-algorithms-in-JS#readme",
+  "devDependencies": {
+    "eslint": "^5.12.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0"
+  }
+}

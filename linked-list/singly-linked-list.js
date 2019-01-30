@@ -1,7 +1,18 @@
 // Singly linked list
 
+/**
+ * Functions of node
+ * Add
+ * Remove
+ * InsertAfter
+ * Traverse
+ * Length
+ * Print
+ */
+
 function Node (data) {
-  this.data = data
+ * @param {*} data 
+ this.data = data
   this.next = null
 }
 

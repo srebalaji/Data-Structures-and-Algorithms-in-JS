@@ -9,7 +9,8 @@ module.exports = {
         "indent": [2, 2],
         "space-before-function-paren": ["error", 'always'],
         "no-underscore-dangle": 0,
-        "no-prototype-builtins": 0
+        "no-prototype-builtins": 0,
+        "experimentalDecorator": 0
     },
     "env": {
         "es6": true,

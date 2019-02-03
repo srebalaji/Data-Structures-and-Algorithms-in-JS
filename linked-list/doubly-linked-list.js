@@ -57,6 +57,95 @@ class DoublyLinkedList {
     }
     this.length += 1
   }
+
+  remove () {
+    if (this.tail) {
+      const lastNode = this.tail // Get the last node.
+      const aboutToBeLastNode = lastNode.backward // Second last is about to be last node.
+      aboutToBeLastNode.forward = null // Set the second last to null
+      this.tail = aboutToBeLastNode // Make the second last as last node and set to tail.
+      this.length -= 1
+    }
+  }
+
+  insertAt (pos, node) {
+    if (pos >= this.length) {
+      console.log('Position is greater than linked list length')
+      return
+    }
+    let i = 0
+    let currentNode = this.head
+    while (i < pos) {
+      currentNode = currentNode.forward
+      i += 1
+    }
+
+    let previousNode = null
+
+    if (currentNode.backward) {
+      previousNode = currentNode.backward
+    } else {
+      this.head = node
+    }
+
+    if (!currentNode.forward) {
+      this.tail = node
+      previousNode = currentNode
+      currentNode = null
+    }
+
+    if (previousNode) previousNode.forward = node
+    node.backward = previousNode
+    node.forward = currentNode
+    if (currentNode) currentNode.backward = node
+
+    this.length += 1
+  }
+
+  removeAt (pos) {
+    if (pos >= this.length) {
+      console.log('Position is greater than linked list length')
+      return
+    }
+    let i = 0
+    let currentNode = this.head
+    while (i < pos) {
+      currentNode = currentNode.forward
+      i += 1
+    }
+    let previousNode = null
+    let nextNode = null
+
+
+    if (currentNode.forward) {
+      nextNode = currentNode.forward
+    }
+
+    if (currentNode.backward) {
+      previousNode = currentNode.backward
+    }
+
+    if (previousNode) previousNode.forward = nextNode
+    if (nextNode) nextNode.backward = previousNode
+
+    if (!previousNode) this.head = nextNode
+    if (!nextNode) this.tail = previousNode
+
+    this.length -= 1
+  }
+
+  findAt (pos) {
+    if (pos >= this.length) {
+      return 'Position is greater than linked list length'
+    }
+    let i = 0
+    let currentNode = this.head
+    while (i < pos) {
+      currentNode = currentNode.forward
+      i += 1
+    }
+    return currentNode.Data
+  }
 }
 
 class Node {
@@ -94,8 +183,13 @@ const linkedList = new DoublyLinkedList()
 const node = new Node('5')
 const node2 = new Node('10')
 const node3 = new Node('15')
+const node4 = new Node('25')
 
 linkedList.add(node)
 linkedList.add(node2)
 linkedList.add(node3)
 linkedList.print()
+linkedList.insertAt(1, node4)
+linkedList.removeAt(3)
+linkedList.print()
+console.log(linkedList.findAt(3))
